@@ -36,9 +36,6 @@ jobs:
         with:
           path: "pokerops.gluster_repo"
 
-      - name: Generate devbox locale
-        run: sudo locale-gen C.UTF-8
-
       - name: Install devbox
         uses: jetify-com/devbox-install-action@v0.12.0
         with:

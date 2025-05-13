@@ -8,8 +8,7 @@
       "version": "latest",
       "platforms": ["x86_64-linux", "aarch64-linux"]
     },
-    "gnumake": "latest",
-    "libvirt": "latest"
+    "gnumake": "latest"
   },
   "env": {
     "LC_ALL": "C.UTF-8"
