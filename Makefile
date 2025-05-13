@@ -56,6 +56,3 @@ publish:
 
 version: install
 	@poetry run molecule --version
-
-debug: version install
-	@poetry self add poetry-plugin-export

@@ -45,9 +45,6 @@ jobs:
           project-path: "pokerops.gluster_repo"
           devbox-version: ${{ vars.DEVBOX_VERSION }}
 
-      - name: Debug test environment
-        run: devbox run -- make debug
-
       - name: Run molecule tests.
         run: devbox run make test
         env:
