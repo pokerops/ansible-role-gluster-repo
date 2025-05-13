@@ -22,4 +22,4 @@ rules:
     min-spaces-from-content: 1
   octal-values:
     forbid-implicit-octal: true
-    forbid-explicit-octal: true truthy: disable
+    forbid-explicit-octal: true
