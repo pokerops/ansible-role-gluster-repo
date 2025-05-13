@@ -1,0 +1,17 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: true
+  become: true
+  vars:
+    _package: glusterfs-server
+  tasks:
+    - name: Check gluster package availability for Debian derivatives
+      ansible.builtin.shell:
+        cmd: set -o pipefail && apt-cache search {{ _package }} | awk '{print $1}' | grep "^{{ item }}$"
+        executable: /bin/bash
+      when: ansible_os_family == 'Debian'
+
+    - name: Check gluster package availability for RedHat derivatives
+      ansible.builtin.shell: yum info {{ _package }}
+      when: ansible_os_family == 'RedHat'

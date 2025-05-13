@@ -1,0 +1,3 @@
+---
+gluster_repo_gpg: /etc/apt/trusted.gpg.d/gluster.gpg
+gluster_repo_release: 11

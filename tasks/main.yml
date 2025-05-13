@@ -1,0 +1,49 @@
+---
+- name: Install MongoDB in debian
+  when: ansible_os_family == "Debian"
+  block:
+    - name: Install prerequisites
+      ansible.builtin.apt:
+        name:
+          - gpg-agent
+          - gnupg
+          - software-properties-common
+        update_cache: true
+
+    - name: Install Gluster in Debian
+      when: ansible_distribution == "Debian"
+      block:
+        - name: Install Gluster apt key
+          ansible.builtin.apt_key:
+            url: "https://download.gluster.org/pub/gluster/glusterfs/{{ gluster_repo_release }}/rsa.pub"
+            keyring: "{{ gluster_repo_gpg }}"
+
+        - name: Clean apt repository
+          ansible.builtin.file:
+            state: absent
+            path: /etc/apt/sources.list.d/gluster.list
+          changed_when: false
+
+        - name: Add apt repository in Debian
+          ansible.builtin.apt_repository:
+            filename: gluster
+            repo: "{{ _repo }}"
+          vars:
+            _gluster_ver: "{{ gluster_repo_release }}"
+            _release: "{{ ansible_distribution_release }}"
+            _version: "{{ ansible_distribution_major_version }}"
+            _arch: "{{ ansible_architecture }}"
+            _debian_url: "https://download.gluster.org/pub/gluster/glusterfs/{{ _gluster_ver }}/LATEST/Debian"
+            _repo_gluster: "deb [signed-by={{ gluster_repo_gpg }}] {{ _debian_url }}/{{ _version }}"
+            _repo: "{{ _repo_gluster }}/{{ _arch }}/apt {{ _release }} main"
+          changed_when: false
+
+    - name: Add apt repository in Ubuntu
+      ansible.builtin.apt_repository:
+        repo: "ppa:gluster/glusterfs-{{ gluster_repo_release }}"
+      changed_when: false
+      when: ansible_distribution == "Ubuntu"
+
+    - name: Update apt repos
+      ansible.builtin.apt:
+        update_cache: true

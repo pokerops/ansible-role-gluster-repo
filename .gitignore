@@ -1,0 +1,9 @@
+.venv/
+*.swp
+**/.cache
+**/__pycache__
+.molecule/
+**/.ropeproject
+playbook.retry
+.ansible/
+.devbox/
