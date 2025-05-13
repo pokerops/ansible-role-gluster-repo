@@ -36,16 +36,11 @@ jobs:
         with:
           path: "pokerops.gluster_repo"
 
-      - name: Generate devbox locale
-        run: sudo locale-gen C.UTF-8
-
       - name: Install devbox
         uses: jetify-com/devbox-install-action@v0.12.0
         with:
           project-path: "pokerops.gluster_repo"
-
-      - name: Debug test environment
-        run: devbox run -- make debug
+          devbox-version: ${{ vars.DEVBOX_VERSION }}
 
       - name: Run molecule tests.
         run: devbox run make test

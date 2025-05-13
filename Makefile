@@ -58,4 +58,4 @@ version: install
 	@poetry run molecule --version
 
 debug: version install
-	@poetry export --dev --without-hashes
+	@poetry self add poetry-plugin-export

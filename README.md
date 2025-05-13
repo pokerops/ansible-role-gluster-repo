@@ -21,8 +21,8 @@ By default this role does not depend on any external roles. If any such dependen
 
 - hosts: servers
   roles:
-     - role: pokerops.gluster_repo
-       gluster_repo_package_state: latest
+  - role: pokerops.gluster_repo
+    gluster_repo_package_state: latest
 
 ## Testing
 
@@ -30,12 +30,11 @@ Please make sure your environment has [docker](https://www.docker.com) installed
 
 Role is tested against the following distributions (docker images):
 
-  * Ubuntu Focal
-  * Ubuntu Jammy
-  * Debian Buster
-  * Debian Bullseye
+- Ubuntu Focal
+- Ubuntu Jammy
+- Debian Bookworm
 
-You can test the role directly from sources using command ` molecule test `
+You can test the role directly from sources using command `make test`
 
 ## License
 

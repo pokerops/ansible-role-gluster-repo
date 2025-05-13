@@ -8,7 +8,7 @@
   tasks:
     - name: Check gluster package availability for Debian derivatives
       ansible.builtin.shell:
-        cmd: set -o pipefail && apt-cache search {{ _package }} | awk '{print $1}' | grep "^{{ item }}$"
+        cmd: set -o pipefail && apt-cache search {{ _package }} | awk '{print $1}' | grep "^{{ _package }}$"
         executable: /bin/bash
       when: ansible_os_family == 'Debian'
 

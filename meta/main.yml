@@ -15,6 +15,6 @@ galaxy_info:
     - name: Debian
       versions:
         - all
-  galaxy_tags: ["gluster_repo"]
+  galaxy_tags: ["gluster", "repo"]
 
 dependencies: []
