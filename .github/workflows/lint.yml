@@ -1,4 +1,5 @@
 ---
+# Test CI trigger
 name: lint
 
 env:
