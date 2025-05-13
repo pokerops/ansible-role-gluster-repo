@@ -1,9 +1,12 @@
 ---
-# Test CI trigger
 name: lint
 
 env:
   DEVBOX_VERSION: ${{ vars.DEVBOX_VERSION }}
+
+defaults:
+  run:
+    working-directory: "pokerops.gluster_repo"
 
 on:
   pull_request:
