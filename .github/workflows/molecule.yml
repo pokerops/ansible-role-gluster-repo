@@ -3,7 +3,6 @@ name: molecule
 
 env:
   DEVBOX_VERSION: ${{ vars.DEVBOX_VERSION }}
-  DEVBOX_USE_VERSION: ${{ vars.DEVBOX_VERSION }}
 
 on:
   pull_request:
@@ -44,6 +43,7 @@ jobs:
         uses: jetify-com/devbox-install-action@v0.12.0
         with:
           project-path: "pokerops.gluster_repo"
+          devbox-version: ${{ vars.DEVBOX_VERSION }}
 
       - name: Debug test environment
         run: devbox run -- make debug

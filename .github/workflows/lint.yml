@@ -3,7 +3,6 @@ name: lint
 
 env:
   DEVBOX_VERSION: ${{ vars.DEVBOX_VERSION }}
-  DEVBOX_USE_VERSION: ${{ vars.DEVBOX_VERSION }}
 
 defaults:
   run:
@@ -31,6 +30,7 @@ jobs:
         uses: jetify-com/devbox-install-action@v0.12.0
         with:
           project-path: "pokerops.gluster_repo"
+          devbox-version: ${{ vars.DEVBOX_VERSION }}
 
       - name: Lint code
         run: devbox run -- make lint
