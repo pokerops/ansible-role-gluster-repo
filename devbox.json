@@ -2,12 +2,8 @@
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.14.1/.schema/devbox.schema.json",
   "packages": {
     "python": "latest",
-    "poetry": "latest",
-    "poetryPlugins.poetry-plugin-export": "latest",
-    "glibcLocales": {
-      "version": "latest",
-      "platforms": ["x86_64-linux", "aarch64-linux"]
-    },
+    "uv": "latest",
+    "yq-go": "latest",
     "gnumake": "latest"
   },
   "env": {
