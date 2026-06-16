@@ -1,16 +1,4 @@
 {
-  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.14.1/.schema/devbox.schema.json",
-  "packages": {
-    "python": "latest",
-    "uv": "latest",
-    "yq-go": "latest",
-    "gnumake": "latest"
-  },
-  "env": {
-    "LC_ALL": "C.UTF-8"
-  },
-  "shell": {
-    "init_hook": [],
-    "scripts": {}
-  }
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.16.0/.schema/devbox.schema.json",
+  "include": ["github:pokerops/ansible-utils?dir=devbox/molecule"]
 }
