@@ -7,9 +7,6 @@ on:
     paths:
       - "*"
       - "!README.md"
-defaults:
-  run:
-    working-directory: "pokerops.gluster-repo"
 jobs:
   molecule:
     name: molecule
